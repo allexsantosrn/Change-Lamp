@@ -17,15 +17,32 @@ lamp.addEventListener('dblclick', lampBroken);
 
 /* Criando função que liga a lâmpada. */
 function lampOn() {
-    lamp.src = './img/ligada.jpg';
+
+     /* Verifica se a lâmpada não está quebrada. */
+    if (!islampBroken()) {
+        lamp.src = './img/ligada.jpg';
+    }       
 }
 
 /* Criando função que desliga a lâmpada. */
 function lampOff() {
-    lamp.src = './img/desligada.jpg';
+
+    /* Verifica se a lâmpada não está quebrada. */
+    if (!islampBroken()) {
+        lamp.src = './img/desligada.jpg';
+    }
+
 }
 
 /* Criando função que desliga a lâmpada. */
 function lampBroken() {
     lamp.src = './img/quebrada.jpg';
+}
+
+/* Criando função que desliga a lâmpada. */
+function islampBroken() {
+    //return lamp.src.indexOf('quebrada') > -1;
+
+    /* Forma mais elegante. */
+    return lamp.getAttribute('src') == "./img/quebrada.jpg"
 }
